@@ -1,10 +1,10 @@
 const PKEY='vmw_products',CKEY='vmw_cart';let activeCat='All';
 const seed=[
-{id:'p1',name:'Black Check Hoodie Set',category:'Winter Set',price:1599,badge:'NEW',sizes:['S','M','L','XL','XXL'],details:'Black-grey checked hooded shirt, white inner & black jogger set',image:'images/plaid-hoodie-black-set.jpg'},
-{id:'p2',name:'Charcoal Wide Fit Jeans',category:'Jeans',price:899,badge:'TRENDING',sizes:['28','30','32','34','36'],details:'Stylish charcoal wide-fit denim jeans',image:'images/charcoal-wide-jeans.jpg'},
-{id:'p3',name:'Navy White Smart Set',category:'Shirts',price:1399,badge:'SMART',sizes:['S','M','L','XL','XXL'],details:'Navy shirt with white trouser and white inner',image:'images/navy-white-smart-set.jpg'},
-{id:'p4',name:'Grey Black Formal Set',category:'Shirts',price:1499,badge:'FEATURED',sizes:['S','M','L','XL','XXL'],details:'Light grey shirt with black trouser, clean smart look',image:'images/grey-black-shirt-trouser-set.jpg'},
-{id:'p5',name:'Black Graphic Street Set',category:'Sweatshirts',price:999,badge:'HOT',sizes:['S','M','L','XL','XXL'],details:'Black graphic sweatshirt with matching black pant',image:'images/black-graphic-set.jpg'}];
+{id:'p1',name:'Black Check Hoodie Set',category:'Winter Set',price:1599,badge:'NEW',sizes:['S','M','L','XL','XXL'],details:'Black-grey checked hooded shirt, white inner & black jogger set',image:'plaid-hoodie-black-set.jpg'},
+{id:'p2',name:'Charcoal Wide Fit Jeans',category:'Jeans',price:899,badge:'TRENDING',sizes:['28','30','32','34','36'],details:'Stylish charcoal wide-fit denim jeans',image:'charcoal-wide-jeans.jpg'},
+{id:'p3',name:'Navy White Smart Set',category:'Shirts',price:1399,badge:'SMART',sizes:['S','M','L','XL','XXL'],details:'Navy shirt with white trouser and white inner',image:'navy-white-smart-set.jpg'},
+{id:'p4',name:'Grey Black Formal Set',category:'Shirts',price:1499,badge:'FEATURED',sizes:['S','M','L','XL','XXL'],details:'Light grey shirt with black trouser, clean smart look',image:'grey-black-shirt-trouser-set.jpg'},
+{id:'p5',name:'Black Graphic Street Set',category:'Sweatshirts',price:999,badge:'HOT',sizes:['S','M','L','XL','XXL'],details:'Black graphic sweatshirt with matching black pant',image:'black-graphic-set.jpg'}];
 function getP(){let p=JSON.parse(localStorage.getItem(PKEY)||'null');if(!p){localStorage.setItem(PKEY,JSON.stringify(seed));return seed}return p}
 function getC(){return JSON.parse(localStorage.getItem(CKEY)||'[]')}function saveC(c){localStorage.setItem(CKEY,JSON.stringify(c));renderCart()}
 function cats(){let cs=['All',...new Set(getP().map(p=>p.category))];let el=document.getElementById('categories');if(!el)return;el.innerHTML=cs.map(c=>`<button class="category ${activeCat===c?'active':''}" onclick="setCat(${JSON.stringify(c)})">${c}</button>`).join('')}
